@@ -1,0 +1,24 @@
+\section{Introduction}
+
+Recent advances in artificial intelligence have significantly expanded the capabilities of software systems. Large Language Models (LLMs) now enable natural language interaction with documents, software applications, databases, and external services. At the same time, retrieval-augmented generation (RAG), workflow orchestration, persistent memory systems, and agent frameworks have become common architectural components in modern AI applications. Rather than relying on a single model, intelligent systems increasingly consist of multiple interacting subsystems responsible for reasoning, retrieval, execution, and evaluation.
+
+Although these components have individually advanced, they are often designed as largely independent subsystems. Retrieval systems focus on identifying relevant information. Workflow engines manage executable actions and their dependencies. Persistent storage maintains documents and structured knowledge. Human feedback mechanisms evaluate system outputs, while reasoning engines determine subsequent actions. Because these components frequently evolve independently, experience accumulated in one subsystem is not consistently incorporated into the others. As a result, continual adaptation across the entire system remains fragmented.
+
+This fragmentation becomes increasingly important as AI assistants perform longer and more complex tasks. Intelligent systems must not only retrieve information, but also remember previous actions, evaluate outcomes, adapt future behavior, and coordinate interactions across heterogeneous software environments. Existing architectures often require multiple disconnected representations of system state, making it difficult to maintain a coherent history of both human and machine activities.
+
+This paper proposes the \emph{Semut Adaptive Architecture}, a unified systems architecture that organizes adaptive intelligence around three complementary memory structures: \emph{Artifact Memory}, \emph{Action Graph}, and \emph{Feedback Memory}. Artifact Memory preserves persistent contextual information such as documents, conversations, source code, and structured data. Action Graph models executable actions together with their dependencies and observed outcomes. Feedback Memory records evaluations from humans, software systems, and environmental observations that influence future decision making. Rather than treating these memories as isolated data stores, the proposed architecture continuously updates all three through a shared adaptive feedback loop.
+
+An important characteristic of the proposed architecture is its independence from any particular reasoning engine. Rule-based systems, Large Language Models, future learning algorithms, and even human operators can all utilize the same adaptive memory framework. The architecture therefore separates persistent knowledge representation from reasoning itself, allowing reasoning engines to evolve independently while sharing accumulated experience through a common memory interface.
+
+The objective of this work is not to introduce a new reasoning algorithm or memory representation. Instead, it presents an architectural abstraction that unifies artifacts, executable actions, and accumulated feedback into a coherent adaptive system. By treating these components as interconnected memories rather than isolated subsystems, intelligent systems may better support continual learning, workflow execution, human-in-the-loop collaboration, and long-term adaptation.
+
+The primary contributions of this paper are:
+
+\begin{itemize}
+\item A unified architectural framework integrating Artifact Memory, Action Graph, and Feedback Memory.
+\item A reasoning-engine-independent design applicable to rule-based systems, LLMs, and future intelligent agents.
+\item A continuous adaptive feedback loop that updates all memory structures following execution.
+\item An architectural perspective for constructing intelligent assistants capable of long-term adaptation across heterogeneous software environments.
+\end{itemize}
+
+The remainder of this paper is organized as follows. Section~\ref{sec:related} reviews existing approaches to memory architectures, workflow systems, and AI agents. Section~\ref{sec:problem} discusses the limitations of fragmented adaptive systems. Section~\ref{sec:architecture} introduces the Semut Adaptive Architecture and its three memory structures. Section~\ref{sec:loop} describes the adaptive feedback loop connecting reasoning, execution, and memory updates. Finally, the paper discusses implementation considerations, potential applications, limitations, and future research directions.
