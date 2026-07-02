@@ -29,3 +29,43 @@ The adaptive loop may therefore be summarized as the following sequence:
 Unlike static workflows, the proposed architecture continuously incorporates accumulated experience into future decision making. Rather than separating retrieval, execution, and evaluation into independent subsystems, the adaptive loop provides a common mechanism through which intelligent systems progressively improve their contextual understanding and operational behavior over time.
 
 Although the architecture does not prescribe a particular learning algorithm, it establishes a unified interface through which future reasoning engines may utilize accumulated experience. As reasoning capabilities evolve, the adaptive memory remains compatible because its responsibilities are independent of the underlying reasoning implementation.
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={
+        rectangle,
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=3.4cm,
+        minimum height=0.9cm
+    },
+    arrow/.style={->, thick, >=Stealth}
+]
+
+\node[box] (request) {User Request};
+\node[box, below=of request] (retrieve) {Context Retrieval\\
+Artifact Memory\\Action Graph\\Feedback Memory};
+\node[box, below=of retrieve] (reason) {Reasoning Engine\\
+LLM / Rules / Human};
+\node[box, below=of reason] (execute) {Action Execution};
+\node[box, below=of execute] (observe) {Observed Outcome};
+\node[box, below=of observe] (update) {Memory Update\\
+Artifacts + Actions + Feedback};
+
+\draw[arrow] (request) -- (retrieve);
+\draw[arrow] (retrieve) -- (reason);
+\draw[arrow] (reason) -- (execute);
+\draw[arrow] (execute) -- (observe);
+\draw[arrow] (observe) -- (update);
+
+\draw[arrow] (update.east) -- ++(1.5,0) |- (retrieve.east);
+
+\end{tikzpicture}
+
+\caption{The Semut adaptive feedback loop. Each interaction retrieves context from Artifact Memory, Action Graph, and Feedback Memory, executes selected actions, observes outcomes, and updates all memory structures for future reasoning.}
+\label{fig:adaptive-loop}
+\end{figure}
