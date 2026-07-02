@@ -12,6 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: List repository files
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 2 -type f
+
       - uses: xu-cheng/latex-action@v3
         with:
           root_file: paper.tex
