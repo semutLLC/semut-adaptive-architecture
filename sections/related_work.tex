@@ -1,0 +1,37 @@
+\section{Related Work}
+\label{sec:related}
+
+Modern intelligent systems have evolved through several complementary research directions, including retrieval systems, workflow orchestration, agent frameworks, persistent memory architectures, and large language models. While these approaches address important aspects of intelligent behavior, they often emphasize different representations of knowledge, execution, and adaptation.
+
+Retrieval-Augmented Generation (RAG) extends language models with external knowledge retrieval, allowing responses to incorporate information beyond the model's training data. Vector databases and semantic search systems provide efficient mechanisms for retrieving documents and structured information. These systems primarily focus on artifact retrieval rather than representing executable actions or accumulating operational feedback.
+
+Workflow orchestration platforms such as Zapier, n8n, Apache Airflow, and similar systems model business processes as directed execution graphs. Their primary objective is reliable task execution, dependency management, and automation across heterogeneous software platforms. Although execution histories and logs are maintained, they are generally treated as operational records rather than adaptive memories that influence future reasoning.
+
+Recent AI agent frameworks, including LangGraph, AutoGen, CrewAI, and related systems, combine reasoning with external tools and workflow execution. These frameworks demonstrate increasingly sophisticated planning capabilities by integrating language models with structured execution. However, persistent memory, workflow representation, and feedback mechanisms are frequently implemented as separate components whose interactions depend on application-specific implementations.
+
+Persistent memory architectures for intelligent assistants have similarly received increasing attention. Conversation histories, vector memories, episodic memories, and knowledge graphs provide mechanisms for preserving contextual information across interactions. Nevertheless, these memories often emphasize information retrieval while leaving action histories and feedback propagation as independent concerns.
+
+Consequently, modern intelligent systems commonly maintain multiple representations of state. Documents and conversations reside in knowledge stores, executable procedures are represented within workflow engines, and evaluations are collected through separate logging or human feedback pipelines. Although each subsystem addresses a specific aspect of intelligent behavior, relatively few architectural frameworks explicitly treat artifacts, actions, and feedback as equally important adaptive memories within a unified representation.
+
+Table~\ref{tab:comparison} summarizes this architectural perspective.
+
+\begin{table}[h]
+\centering
+\caption{High-level comparison of representative intelligent system architectures. The comparison illustrates broad architectural emphasis rather than exhaustive implementation details.}
+\label{tab:comparison}
+
+\begin{tabular}{lcccc}
+\hline
+System & Artifacts & Actions & Feedback & Unified Adaptive Memory \\
+\hline
+RAG Systems & \checkmark & -- & Partial & -- \\
+Workflow Engines & Partial & \checkmark & Partial & -- \\
+Knowledge Graphs & \checkmark & Partial & -- & -- \\
+AI Agent Frameworks & \checkmark & \checkmark & Partial & Partial \\
+Semut Adaptive Architecture & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+\end{tabular}
+
+\end{table}
+
+Unlike existing categories, the Semut Adaptive Architecture does not replace retrieval systems, workflow engines, or reasoning models. Instead, it proposes a common architectural abstraction in which Artifact Memory, Action Graph, and Feedback Memory are treated as interconnected adaptive components. This separation between adaptive memory and reasoning enables multiple reasoning engines, including rule-based systems, large language models, and future learning algorithms, to operate over the same evolving memory structure.
