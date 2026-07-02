@@ -1,0 +1,31 @@
+\section{Adaptive Feedback Loop}
+\label{sec:loop}
+
+The central principle of the Semut Adaptive Architecture is that intelligent behavior emerges through a continuous interaction between reasoning, execution, and adaptive memory. Rather than viewing memory as passive storage, the proposed architecture treats memory as an evolving representation of accumulated system experience.
+
+Each interaction begins with a request from a human user or an external software system. The request itself provides only partial context. Additional information is retrieved from the three complementary memory structures: Artifact Memory, Action Graph, and Feedback Memory. Together, these memories provide the reasoning engine with historical knowledge, executable behavior, and prior observations.
+
+Using the retrieved context, the reasoning engine selects one or more executable actions. The reasoning engine itself is intentionally unspecified by the architecture and may consist of a rule-based system, a Large Language Model, a future learning algorithm, or a human operator. The architecture therefore separates adaptive memory from the reasoning mechanism.
+
+Selected actions are subsequently executed through external software systems, application interfaces, robotic platforms, or human participants. Execution produces observable outcomes, including successful task completion, failures, user corrections, execution metrics, environmental observations, and additional artifacts generated during the task.
+
+These observations are collected as Feedback Memory. Unlike traditional monitoring systems, feedback is not treated solely as diagnostic information. Instead, feedback directly influences future reasoning by updating all three adaptive memory structures.
+
+Successful execution may strengthen confidence in particular action sequences. Failures may introduce alternative execution paths or additional constraints. Newly generated documents become artifacts available for future retrieval. Human corrections become persistent feedback that guides subsequent decisions. Consequently, each execution contributes to the continual evolution of the adaptive memory.
+
+The adaptive loop may therefore be summarized as the following sequence:
+
+\begin{enumerate}
+\item Receive a request.
+\item Retrieve relevant artifacts, actions, and feedback.
+\item Reason over the retrieved context.
+\item Select executable actions.
+\item Execute the selected actions.
+\item Observe execution outcomes.
+\item Update Artifact Memory, Action Graph, and Feedback Memory.
+\item Repeat for subsequent requests.
+\end{enumerate}
+
+Unlike static workflows, the proposed architecture continuously incorporates accumulated experience into future decision making. Rather than separating retrieval, execution, and evaluation into independent subsystems, the adaptive loop provides a common mechanism through which intelligent systems progressively improve their contextual understanding and operational behavior over time.
+
+Although the architecture does not prescribe a particular learning algorithm, it establishes a unified interface through which future reasoning engines may utilize accumulated experience. As reasoning capabilities evolve, the adaptive memory remains compatible because its responsibilities are independent of the underlying reasoning implementation.
