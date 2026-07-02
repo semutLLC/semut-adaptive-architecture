@@ -35,45 +35,9 @@ Although each memory structure serves a distinct purpose, they continuously infl
 
 The proposed architecture therefore treats artifacts, actions, and feedback as complementary representations of system experience rather than independent software components. This unified representation provides a common adaptive substrate upon which diverse reasoning engines may operate.
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[
-    node distance=1.5cm,
-    box/.style={
-        rectangle,
-        draw,
-        rounded corners,
-        minimum width=3.5cm,
-        minimum height=0.9cm,
-        align=center
-    },
-    arrow/.style={->, thick}
-]
-
-\node[box] (artifact) {Artifact Memory};
-
-\node[box, right=3cm of artifact] (action) {Action Graph};
-
-\node[box, below=2cm of artifact] (feedback) {Feedback Memory};
-
-\node[box, right=3cm of feedback] (reason) {Reasoning Engine};
-
-\node[box, below=2cm of reason] (execute) {Execution Layer};
-
-\draw[arrow] (artifact) -- (reason);
-\draw[arrow] (action) -- (reason);
-\draw[arrow] (feedback) -- (reason);
-
-\draw[arrow] (reason) -- (execute);
-
-\draw[arrow] (execute) -- (artifact);
-\draw[arrow] (execute) -- (action);
-\draw[arrow] (execute) -- (feedback);
-
-\end{tikzpicture}
-
-\caption{Overview of the Semut Adaptive Architecture. Three complementary memory structures provide contextual information to the reasoning engine. Execution outcomes update all memory structures, forming a continuously adaptive system.}
-
-\label{fig:architecture}
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/architecture.PNG}
+    \caption{Overview of the Semut Adaptive Architecture. Artifact Memory, Action Graph, and Feedback Memory provide contextual information to the reasoning engine. Execution outcomes update the adaptive memory, forming a continuous adaptive feedback loop.}
+    \label{fig:architecture}
 \end{figure}
