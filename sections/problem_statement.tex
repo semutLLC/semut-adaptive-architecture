@@ -1,0 +1,20 @@
+\section{Problem Statement}
+\label{sec:problem}
+
+Modern intelligent systems increasingly combine multiple components, including reasoning engines, retrieval systems, workflow orchestration, persistent storage, and human feedback mechanisms. Although each component performs an important function, they frequently maintain independent representations of system state. As intelligent assistants become capable of performing longer and more complex tasks, maintaining separate representations introduces several architectural challenges.
+
+First, contextual knowledge is often separated from executable behavior. Documents, conversations, and structured information are typically stored within retrieval systems or databases, while executable procedures are represented independently inside workflow engines or application logic. Consequently, reasoning engines must repeatedly reconstruct relationships between retrieved information and available actions.
+
+Second, execution histories are commonly treated as operational logs rather than adaptive memories. Workflow engines record completed tasks and execution status for monitoring and debugging purposes, but these histories are not consistently incorporated into future reasoning. As a result, successful execution patterns and previous failures are difficult to reuse across different tasks.
+
+Third, feedback frequently exists outside the primary decision-making architecture. Human evaluations, software-generated metrics, environmental observations, and execution outcomes are often collected by separate monitoring or evaluation systems. Although these signals provide valuable information about system performance, they rarely participate directly in future retrieval, planning, or execution.
+
+These architectural separations become increasingly significant for long-running intelligent assistants. Systems operating across heterogeneous software environments must continuously coordinate documents, executable actions, user preferences, environmental observations, and accumulated experience. Without a unified adaptive representation, maintaining consistent long-term behavior becomes progressively more difficult as interactions increase.
+
+This work therefore considers the following architectural question:
+
+\begin{quote}
+How can artifacts, executable actions, and accumulated feedback be represented within a unified adaptive memory architecture while remaining independent of the underlying reasoning engine?
+\end{quote}
+
+Rather than proposing a new reasoning algorithm, this paper investigates an architectural abstraction that organizes these three complementary forms of memory into a continuous adaptive feedback loop. The following section introduces the proposed Semut Adaptive Architecture and describes the responsibilities of Artifact Memory, Action Graph, and Feedback Memory.
