@@ -1,0 +1,50 @@
+\section{Architectural Evaluation}
+\label{sec:evaluation}
+
+This work introduces an architectural abstraction rather than a new reasoning algorithm. Consequently, the evaluation focuses on architectural properties of the proposed system instead of quantitative benchmarking. Future implementations may evaluate execution time, retrieval quality, memory utilization, or task completion performance using application-specific datasets.
+
+\subsection{Architectural Objectives}
+
+The proposed architecture was designed to satisfy the following objectives.
+
+\begin{itemize}
+\item Separation of reasoning from persistent memory.
+\item Unified representation of artifacts, executable actions, and accumulated feedback.
+\item Continuous adaptation through iterative memory updates.
+\item Compatibility with heterogeneous software systems.
+\item Extensibility to future reasoning engines.
+\end{itemize}
+
+These objectives motivate the design decisions presented throughout the previous sections.
+
+\subsection{Modularity}
+
+Each memory structure has a clearly defined responsibility. Artifact Memory manages persistent contextual information. Action Graph represents executable behavior. Feedback Memory records observations and evaluations.
+
+Because these components communicate through well-defined interfaces, implementations may replace individual modules without modifying the overall architecture. For example, a vector database may replace a relational database for Artifact Memory, or a different workflow engine may replace the execution layer while preserving the remaining adaptive memory structure.
+
+\subsection{Reasoning Independence}
+
+The architecture intentionally avoids dependence upon any specific reasoning algorithm. Rule-based systems, Large Language Models, planning algorithms, reinforcement learning systems, or future reasoning engines may all retrieve context from the same adaptive memory.
+
+This separation reduces coupling between memory management and reasoning, allowing improvements in reasoning algorithms without requiring changes to the adaptive memory architecture.
+
+\subsection{Continuous Adaptation}
+
+Unlike architectures in which execution history remains isolated within operational logs, the proposed adaptive loop continuously incorporates execution outcomes into persistent memory.
+
+Successful executions, observed failures, user corrections, and newly generated artifacts become available for future retrieval. Consequently, system behavior evolves through accumulated operational experience rather than relying exclusively on static workflows or predefined knowledge.
+
+\subsection{Scalability Considerations}
+
+As interactions increase, both Artifact Memory and Action Graph are expected to grow continuously. Practical implementations may therefore require retrieval policies, summarization techniques, memory pruning, graph compression, or hierarchical storage mechanisms to maintain efficient reasoning.
+
+The proposed architecture intentionally separates these implementation strategies from the architectural abstraction itself, allowing different applications to adopt storage and retrieval techniques appropriate to their operational requirements.
+
+\subsection{Limitations}
+
+The proposed architecture does not specify a retrieval algorithm, planning algorithm, or learning algorithm. Instead, it provides a common adaptive framework within which these components may operate.
+
+Furthermore, maintaining large adaptive memories introduces challenges related to storage growth, retrieval efficiency, privacy, security, and credit assignment. Addressing these challenges represents an important direction for future research.
+
+Overall, the Semut Adaptive Architecture demonstrates how artifacts, executable actions, and accumulated feedback may be organized within a unified adaptive memory while remaining independent of the underlying reasoning engine.
